@@ -17,7 +17,7 @@ cartesian_plot = st.container()
 log_log_plot = st.container()
 log_log_power_plot = st.container()
 
-st.cache
+# st.cache
 
 
 def get_data(filename):
