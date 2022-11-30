@@ -28,7 +28,7 @@ log_log_power_plot = st.container()
 # prod_frac2_processed_df = pd.read_excel("Data/prod_frac2_processed_df.xlsx", engine='openpyxl')
 
 
-prod_frac3 = pd.read_excel("data/prod_frac2_processed_df.xlsx", engine='openpyxl')
+prod_frac3 = pd.read_excel("data/prod_frac2_processed_df.xlsx")
 
 with header:
     st.title('Fluid Production Flow Regions Analysis for Determining Modified Base GOR in Fractured High GOR Well')
