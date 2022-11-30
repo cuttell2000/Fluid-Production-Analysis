@@ -20,10 +20,10 @@ log_log_power_plot = st.container()
 # st.cache
 
 
-def get_data(filename):
-    prod_frac2_processed = pd.read_excel(filename)
-
-    return prod_frac2_processed
+# def get_data(filename):
+#     prod_frac2_processed = pd.read_excel(filename)
+#
+#     return prod_frac2_processed
 
 
 with header:
@@ -35,11 +35,10 @@ with dataset:
     st.header("Hydraulic Fractured Wells Fluid Production Data")
     st.text('The dataset was query from Cognos for hydraulic fractured wells in about 12 pools')
 
-    # prod_frac2_processed_df = pd.read_excel("data/prod_frac2_processed_df.xlsx")
-    prod_frac2_processed_df = get_data("data/prod_frac2_processed_df.xlsx")
+    prod_frac2_processed_df = pd.read_excel("data/prod_frac2_processed_df.xlsx")
+    # prod_frac2_processed_df = get_data("data/prod_frac2_processed_df.xlsx")
     st.write(prod_frac2_processed_df.head())
     # st.write(get_data(filename).head())
-
 
     st.subheader('Pool distribution on monthly fluid production of fractured well completions')
     pool_dist = pd.DataFrame(prod_frac2_processed_df['Pool_Long_Name'].value_counts())
