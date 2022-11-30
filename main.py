@@ -17,18 +17,6 @@ cartesian_plot = st.container()
 log_log_plot = st.container()
 log_log_power_plot = st.container()
 
-# st.cache
-
-
-# def get_data(filename):
-#     prod_frac2_processed = pd.read_excel(filename)
-#
-#     return prod_frac2_processed
-
-# prod_frac2_processed_df = pd.read_excel("Data/prod_frac2_processed_df.xlsx", engine='openpyxl')
-
-
-prod_frac3 = pd.read_excel("data/prod_frac2_processed_df.xlsx")
 
 with header:
     st.title('Fluid Production Flow Regions Analysis for Determining Modified Base GOR in Fractured High GOR Well')
@@ -39,17 +27,15 @@ with dataset:
     st.header("Hydraulic Fractured Wells Fluid Production Data")
     st.text('The dataset was query from Cognos for hydraulic fractured wells in about 12 pools')
 
-    # prod_frac3 = pd.read_excel("data/prod_frac2_processed_df.xlsx")
-    # prod_frac2_processed_df = get_data("data/prod_frac2_processed_df.xlsx")
-    st.write(prod_frac3.head())
-    # st.write(get_data(filename).head())
+    prod_frac3 = pd.read_csv('data/prod_frac3.csv')
+    # prod_frac2_processed_df = pd.read_excel("data/prod_frac2_processed_df.xlsx")
+    # st.write(prod_frac2_processed_df.head())
 
     st.subheader('Pool distribution on monthly fluid production of fractured well completions')
+    # pool_dist = pd.DataFrame(prod_frac2_processed_df['Pool_Long_Name'].value_counts())
     pool_dist = pd.DataFrame(prod_frac3['Pool_Long_Name'].value_counts())
-    # pool_dist = prod_frac2_processed_df['Pool_Long_Name'].value_counts()
     st.bar_chart(pool_dist)
 
-# prod_frac3 = prod_frac2_processed_df.copy()
 
 with cartesian_plot:
     st.set_option('deprecation.showPyplotGlobalUse', False)  # to disable error
