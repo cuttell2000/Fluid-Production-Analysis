@@ -25,7 +25,7 @@ log_log_power_plot = st.container()
 #
 #     return prod_frac2_processed
 
-prod_frac2_processed_df = pd.read_excel("Data/prod_frac2_processed_df.xlsx")
+# prod_frac2_processed_df = pd.read_excel("Data/prod_frac2_processed_df.xlsx", engine='openpyxl')
 
 
 with header:
@@ -37,17 +37,17 @@ with dataset:
     st.header("Hydraulic Fractured Wells Fluid Production Data")
     st.text('The dataset was query from Cognos for hydraulic fractured wells in about 12 pools')
 
-    # prod_frac2_processed_df = pd.read_excel("data/prod_frac2_processed_df.xlsx")
+    prod_frac3 = pd.read_excel("data/prod_frac2_processed_df.xlsx")
     # prod_frac2_processed_df = get_data("data/prod_frac2_processed_df.xlsx")
-    st.write(prod_frac2_processed_df.head())
+    st.write(prod_frac3.head())
     # st.write(get_data(filename).head())
 
     st.subheader('Pool distribution on monthly fluid production of fractured well completions')
-    # pool_dist = pd.DataFrame(prod_frac2_processed_df['Pool_Long_Name'].value_counts())
-    pool_dist = prod_frac2_processed_df['Pool_Long_Name'].value_counts()
+    pool_dist = pd.DataFrame(prod_frac3['Pool_Long_Name'].value_counts())
+    # pool_dist = prod_frac2_processed_df['Pool_Long_Name'].value_counts()
     st.bar_chart(pool_dist)
 
-prod_frac3 = prod_frac2_processed_df.copy()
+# prod_frac3 = prod_frac2_processed_df.copy()
 
 with cartesian_plot:
     st.set_option('deprecation.showPyplotGlobalUse', False)  # to disable error
