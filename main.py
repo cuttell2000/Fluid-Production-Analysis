@@ -17,7 +17,8 @@ cartesian_plot = st.container()
 log_log_plot = st.container()
 log_log_power_plot = st.container()
 
-prod_frac3 = pd.read_csv('data/prod_frac3.csv')
+# prod_frac3 = pd.read_csv('data/prod_frac3.csv')
+prod_frac3 = pd.read_csv('prod_frac3.csv')
 
 with header:
     st.title('Fluid Production Flow Regions Analysis for Determining Modified Base GOR in Fractured High GOR Well')
@@ -31,6 +32,7 @@ with dataset:
     # prod_frac3 = pd.read_csv('data/prod_frac3.csv')
     # prod_frac2_processed_df = pd.read_excel("data/prod_frac2_processed_df.xlsx")
     # st.write(prod_frac2_processed_df.head())
+    st.write(prod_frac3.head())
 
     st.subheader('Pool distribution on monthly fluid production of fractured well completions')
     # pool_dist = pd.DataFrame(prod_frac2_processed_df['Pool_Long_Name'].value_counts())
